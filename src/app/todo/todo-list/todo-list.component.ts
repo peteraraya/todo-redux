@@ -12,6 +12,7 @@ export class TodoListComponent implements OnInit {
 
   // Propiedad local que servirá para mostrar los todo list
   todos: Todo[] = [];
+  filtro: string;
 
   constructor( private store: Store<AppState>) { }
 
@@ -19,6 +20,8 @@ export class TodoListComponent implements OnInit {
     // Lo haremos global
     this.store.subscribe(state => {
       this.todos = state.todos;
+
+      this.filtro = state.filtro;
     });
   }
 

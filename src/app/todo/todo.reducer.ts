@@ -64,6 +64,9 @@ export function todoReducer ( state = estadoInicial,
             case fromTodo.BORRAR_TODO:
                 return state.filter( todoEdit => todoEdit.id !== action.id); // filter : regresa un nuevo arreglo que cumplan una nueva condición
                 // va regresar un nuevo arreglo pero que dicho arreglo sea diferente al id que estoy mandando y eso es lo que voy a regresar al state
+
+           case fromTodo.BORRAR_ALL_TODO:
+               return state.filter(todoEdit => !todoEdit.completado); // filter : regresa un nuevo arreglo que cumplan una nueva condición
            default:
                return state;
        }
